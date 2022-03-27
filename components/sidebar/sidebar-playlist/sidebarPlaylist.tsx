@@ -1,17 +1,19 @@
 import NextLink from "next/link"
 import { Box, LinkBox, LinkOverlay, List, ListItem } from "@chakra-ui/layout"
+import { usePlaylist } from "../../../lib/hooks"
 
-const SidebarPlaylist = ({ playlist }) => {
+const SidebarPlaylist = () => {
+    const { playlists } = usePlaylist()
     return (
         <Box height='66%' overflowY='auto'>
             <List spacing={2}>
                 {
-                    playlist.map(item => (
-                        <ListItem paddingX='20px' key={item}>
+                    playlists.map(item => (
+                        <ListItem paddingX='20px' key={item.id}>
                             <LinkBox>
                                 <NextLink href="/" passHref>
                                     <LinkOverlay>
-                                        {item}
+                                        {item.name}
                                     </LinkOverlay>
                                 </NextLink>
                             </LinkBox>

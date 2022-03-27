@@ -7,12 +7,10 @@ export const validateRoute = (handler) => {
         const { COOKIE_TOKEN } = req.cookies
 
         if (COOKIE_TOKEN) {
-            let user
-
             try {
                 const { id } = jwt.verify(COOKIE_TOKEN, 'secret')
 
-                user = await prisma.user.findUnique({
+                const user = await prisma.user.findUnique({
                     where: {
                         id
                     }

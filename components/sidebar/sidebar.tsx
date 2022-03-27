@@ -34,7 +34,7 @@ const musicMenu = [
     }
 ]
 
-const playlist = new Array(30).fill(1).map((_, i) => `Playlist ${i + 1}`)
+// const playlist = new Array(30).fill(1).map((_, i) => `Playlist ${i + 1}`)
 
 const Sidebar = () => {
     return (
@@ -50,7 +50,7 @@ const Sidebar = () => {
 
                 <Divider marginY='20px' color='gray.800' />
 
-                <SidebarPlaylist playlist={playlist} />
+                <SidebarPlaylist />
 
             </Box>
         </Box>

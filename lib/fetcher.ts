@@ -8,5 +8,14 @@ export default function fetcher(url: string, data = undefined) {
             },
             body: JSON.stringify(data) // setting data to undefined wont cause an error, a null value for data will
         }
-    )
+    ).then(res => {
+        console.log(res);
+
+
+        if (res.status > 399 && res.status < 200) {
+            throw new Error()
+        }
+
+        return res.json()
+    })
 }
