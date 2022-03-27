@@ -1,7 +1,10 @@
+import GradientLayout from "../components/gradientLayout/gradientLayout"
 
 const Home = () => {
   return (
-    <div className="">home</div>
+    <GradientLayout color='blue' subtitle='profile' title='Khao' image='/avatar.jpg' description='this is a description' isRoundImg>
+      <div>hello</div>
+    </GradientLayout>
   )
 }
 
