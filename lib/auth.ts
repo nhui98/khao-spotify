@@ -28,3 +28,8 @@ export const validateRoute = (handler) => {
         res.status(401).json({ error: 'not authorised' })
     }
 }
+
+export const validateToken = token => {
+    const user = jwt.verify(token, 'secret')
+    return user
+}
