@@ -34,8 +34,6 @@ const musicMenu = [
     }
 ]
 
-// const playlist = new Array(30).fill(1).map((_, i) => `Playlist ${i + 1}`)
-
 const Sidebar = () => {
     return (
         <Box sx={{ width: "100%", height: "calc(100vh - 100px)", backgroundColor: "black", paddingLeft: "5px", color: "gray" }}>

@@ -17,7 +17,7 @@ const Home = ({ artists }) => {
         <Flex columnGap='20px'>
           {
             artists.map(artist => (
-              <Flex bg='gray.900' borderRadius='4px' padding='15px' width='15%' rowGap='20px' flexDirection='column'>
+              <Flex bg='gray.900' borderRadius='4px' padding='15px' width='15%' rowGap='20px' flexDirection='column' key={artist.id}>
                 <Center>
                   <Image src='/avatar.jpg' borderRadius='50%' width='100%' />
                 </Center>
