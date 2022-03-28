@@ -1,14 +1,23 @@
 import { Box } from '@chakra-ui/layout'
+import { useStoreActions } from 'easy-peasy'
 import { BsFillPlayFill } from 'react-icons/bs'
 import { AiOutlineClockCircle } from 'react-icons/ai'
 import { IconButton, Table, Tbody, Td, Th, Thead, Tr } from '@chakra-ui/react'
 import { formatDate, formatTime } from '../../lib/formatter'
 
 const SongsTable = ({ songs }) => {
+    const playSongs = useStoreActions((store: any) => store.changeActiveSongs)
+    const setActiveSong = useStoreActions((store: any) => store.changeActiveSong)
+
+    const handlePlay = (activeSong?) => {
+        setActiveSong(activeSong || songs[0])
+        playSongs(songs)
+    }
+
     return (
         <Box bg='transparent' color='white'>
             <Box padding='10px' marginBottom='20px'>
-                <IconButton icon={<BsFillPlayFill fontSize='30px' />} size="lg" isRound aria-label='play' colorScheme='green' />
+                <IconButton icon={<BsFillPlayFill fontSize='30px' />} size="lg" isRound aria-label='play' colorScheme='green' onClick={() => handlePlay()} />
             </Box>
             <Table variant='unstyled'>
                 <Thead borderBottom='1px solid' borderColor='rgba(255, 255, 255, 0.2)'>
@@ -29,7 +38,9 @@ const SongsTable = ({ songs }) => {
                                 }
                             }}
                             cursor='pointer'
-                            key={song.id}>
+                            key={song.id}
+                            onClick={() => handlePlay(song)}
+                        >
                             <Td>{i + 1}</Td>
                             <Td>{song.name}</Td>
                             <Td>{formatDate(song.createdAt)}</Td>

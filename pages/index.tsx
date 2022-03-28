@@ -8,7 +8,7 @@ const Home = ({ artists }) => {
   const { user, isLoading, error } = useMe()
 
   return (
-    <GradientLayout color='blue' subtitle='profile' title={`${user?.firstName} ${user?.lastName}`} image='/avatar.jpg' description={`${user?.playlistCount}`} isRoundImg>
+    <GradientLayout color='blue' subtitle='profile' title={`${user?.firstName} ${user?.lastName}`} image='/avatar.jpg' description={`${user?.playlistCount} playlist(s)`} isRoundImg>
       <Box color='white' paddingX='40px'>
         <Box sx={{ marginBottom: '40px' }}>
           <Text fontSize='2xl' fontWeight='bold'>Top artist this month</Text>
