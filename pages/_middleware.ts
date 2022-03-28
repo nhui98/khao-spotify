@@ -12,7 +12,7 @@ export default function middleware(req) {
         const token = req.cookies.COOKIE_TOKEN
 
         if (!token) {
-            return NextResponse.redirect(`/signin`)
+            return NextResponse.redirect(`${req.nextUrl.origin}/signin`)
         }
     }
 }
